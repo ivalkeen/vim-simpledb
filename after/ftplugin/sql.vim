@@ -1,1 +1,1 @@
-map <buffer> <enter> :call ExecuteSql()<cr>
+map <buffer> <enter> :call postgres#ExecuteSql()<cr>
