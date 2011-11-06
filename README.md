@@ -30,3 +30,9 @@ Default key mapping for execution: `<enter>`.
 3. Add sql statements to your file
 
 4. Hit enter, to execute all not commented queries
+
+TODO
+-
+
+1. Rewrite code to match vim script conventions
+2. Intellisence
