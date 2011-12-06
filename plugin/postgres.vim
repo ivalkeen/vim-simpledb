@@ -29,6 +29,7 @@ endfunction
 function! postgres#ExecuteSql()
   let conprops = matchstr(getline(1), '--\s*\zs.*')
   let sql_text = shellescape('\\timing on \\\ ' . s:GetQuery())
+  let sql_text = escape(sql_text, '%')
   let cmdline = 'echo -e ' . sql_text . '| psql ' . conprops
   silent execute '!(' . cmdline . ' > /tmp/vim-postgres-result.txt) 2> /tmp/vim-postgres-result.txt'
   call s:ShowResults()
