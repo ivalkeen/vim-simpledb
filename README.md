@@ -1,38 +1,50 @@
-postgres-vim
-=
+# vim-simpledb
 
-Vim plugin to execute postgresql commands from VIM buffer
+Vim plugin to execute postgresql or mysql commands from VIM buffer
 
-Installation (Pathogen)
--
+## Installation
+
+### Pathogen
 
 If you use git submodules, run this command from your .vim folder:
 
-    git submodule add https://github.com/ivalkeen/vim-postgres bundle/postgres
+    git submodule add https://github.com/ivalkeen/vim-simpledb bundle/simpledb
 
 Otherwise, , run this command from your .vim folder:
 
-    git clone https://github.com/ivalkeen/vim-postgres bundle/postgres
+    git clone https://github.com/ivalkeen/vim-simpledb bundle/simpledb
 
-Usage
--
+### Vundle
+
+Add this line to your vimrc
+
+    Bundle 'ivalkeen/vim-simpledb'
+
+## Usage
 
 Default key mapping for execution: `<enter>`.
 
 1. Create new file with .sql extension (without extensions, mapping would not work)
 
-2. Create first line with commented parameters for psql:
+2. Create first line with commented parameters:
+
+  for psql:
 
      `-- -h localhost -U postgres -d my_database`
 
-  Note: if you don't want to enter password each time, you should create .pgpass file
+  or for mysql:
+
+     `-- db:mysql -D my_database -u root`
+
+  Note: if you don't want to enter password each time, you should create .pgpass (.my.cnf for mysql) file
 
 3. Add sql statements to your file
 
 4. Hit enter, to execute all not commented queries
 
-TODO
--
+If you have any questions, [mail me](mailto:itkalin@gmail.com)
+
+## TODO
 
 1. Rewrite code to match vim script conventions
 2. Intellisence

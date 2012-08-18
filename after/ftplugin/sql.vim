@@ -1,1 +1,1 @@
-map <buffer> <enter> :call postgres#ExecuteSql()<cr>
+map <buffer> <enter> :call simpledb#ExecuteSql()<cr>
