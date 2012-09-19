@@ -1,1 +1,1 @@
-au BufNewFile,BufRead *.pgsql set filetype=plpgsql
+au BufNewFile,BufRead *.pgsql,*.plpgsql set filetype=plpgsql
