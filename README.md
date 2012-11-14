@@ -28,23 +28,30 @@ Default key mapping for execution: `<enter>`.
 
 2. Create first line with commented parameters:
 
-  for psql:
+    for psql:
 
-     `-- -h localhost -U postgres -d my_database`
+    `-- -h localhost -U postgres -d my_database`
 
-  or for mysql:
+    or for mysql:
 
-     `-- db:mysql -D my_database -u root`
+    `-- db:mysql -D my_database -u root`
 
-  Note: if you don't want to enter password each time, you should create .pgpass (.my.cnf for mysql) file
+    Note: if you don't want to enter password each time, you should create .pgpass (.my.cnf for mysql) file
 
 3. Add sql statements to your file
 
-4. Hit enter, to execute all not commented queries
+4. Hit `<enter>` to execute all not commented queries
+
+5. Hit `<leader><enter>` to execute all queries in the current paragraph
+
+6. Select multiple lines in visual mode and hit enter to execute just those queries
+
+
+
 
 If you have any questions, [mail me](mailto:itkalin@gmail.com)
 
 ## TODO
 
 1. Rewrite code to match vim script conventions
-2. Intellisence
+2. Intellisense
