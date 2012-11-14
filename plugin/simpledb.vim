@@ -1,6 +1,6 @@
 function! s:GetQuery()
   let query = ''
-  let lines = getline(2,'$')
+  let lines = getline("'<","'>")
   for line in lines
     if line !~ '--.*'
       let query .= line . "\n"
