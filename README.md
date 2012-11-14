@@ -44,7 +44,7 @@ Default key mapping for execution: `<enter>`.
 
 5. Hit `<leader><enter>` to execute all queries in the current paragraph
 
-6. Select multiple lines in visual mode and hit enter to execute just those queries
+6. Select multiple lines in visual mode and hit `<enter>` to execute just those queries
 
 
 
