@@ -1,6 +1,6 @@
-function! s:GetQuery()
+function! s:GetQuery(first, last)
   let query = ''
-  let lines = getline("'<","'>")
+  let lines = getline(a:first, a:last)
   for line in lines
     if line !~ '--.*'
       let query .= line . "\n"
@@ -26,15 +26,16 @@ function! s:ShowResults()
   exec bufwinnr(source_buf_nr) . "wincmd w"
 endfunction
 
-function! simpledb#ExecuteSql()
+function! simpledb#ExecuteSql(first_line, last_line)
   let conprops = matchstr(getline(1), '--\s*\zs.*')
   let adapter = matchlist(conprops, 'db:\(\w\+\)')
   let conprops = substitute(conprops, "db:\\w\\+", "", "")
+  let query = s:GetQuery(a:first_line, a:last_line)
 
   if len(adapter) > 1 && adapter[1] == 'mysql'
-    let cmdline = s:MySQLCommand(conprops)
+    let cmdline = s:MySQLCommand(conprops, query)
   else
-    let cmdline = s:PostgresCommand(conprops)
+    let cmdline = s:PostgresCommand(conprops, query)
   endif
 
   silent execute '!(' . cmdline . ' > /tmp/vim-simpledb-result.txt) 2> /tmp/vim-simpledb-result.txt'
@@ -42,15 +43,15 @@ function! simpledb#ExecuteSql()
   redraw!
 endfunction
 
-function! s:MySQLCommand(conprops)
-  let sql_text = shellescape(s:GetQuery())
+function! s:MySQLCommand(conprops, query)
+  let sql_text = shellescape(a:query)
   let sql_text = escape(sql_text, '%')
   let cmdline = 'echo -e ' . sql_text . '| mysql -v -v -v -t ' . a:conprops
   return cmdline
 endfunction
 
-function! s:PostgresCommand(conprops)
-  let sql_text = shellescape('\\timing on \\\ ' . s:GetQuery())
+function! s:PostgresCommand(conprops, query)
+  let sql_text = shellescape('\\timing on \\\ ' . a:query)
   let sql_text = escape(sql_text, '%')
   let cmdline = 'echo -e ' . sql_text . '| psql ' . a:conprops
   return cmdline
