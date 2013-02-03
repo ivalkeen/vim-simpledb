@@ -1,7 +1,3 @@
-# jordandcarter's fork
-
-I have just simply added syntax highlighting for plpgsql (Never done that before, so not sure if it was the best approach, but it works)
-
 # vim-simpledb
 
 Vim plugin to execute postgresql or mysql commands from VIM buffer
