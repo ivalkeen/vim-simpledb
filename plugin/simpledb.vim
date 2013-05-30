@@ -38,7 +38,8 @@ function! simpledb#ExecuteSql(first_line, last_line)
     let cmdline = s:PostgresCommand(conprops, query)
   endif
 
-  silent execute '!(' . cmdline . ' > /tmp/vim-simpledb-result.txt) 2> /tmp/vim-simpledb-result.txt'
+  silent execute '!(' . cmdline . ' > /tmp/vim-simpledb-result.txt) 2> /tmp/vim-simpledb-error.txt'
+  silent execute '!(cat /tmp/vim-simpledb-error.txt >> /tmp/vim-simpledb-result.txt)'
   call s:ShowResults()
   redraw!
 endfunction
