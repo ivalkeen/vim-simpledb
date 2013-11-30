@@ -1,3 +1,4 @@
+
 function! s:GetQuery(first, last)
   let query = ''
   let lines = getline(a:first, a:last)
@@ -19,18 +20,18 @@ function! s:ShowResults()
   if bufwinnr(s:result_buf_nr) > 0
     exec bufwinnr(s:result_buf_nr) . "wincmd w"
   else
-    exec 'silent! botright ' . 'sview /tmp/vim-simpledb-result.txt'
+    exec 'silent! botright ' . 'sview +set\ autoread /tmp/vim-simpledb-result.txt '
     let s:result_buf_nr = bufnr('%')
   endif
 
   exec bufwinnr(source_buf_nr) . "wincmd w"
 endfunction
 
-function! simpledb#ExecuteSql(first_line, last_line)
+function! simpledb#ExecuteSql() range
   let conprops = matchstr(getline(1), '--\s*\zs.*')
   let adapter = matchlist(conprops, 'db:\(\w\+\)')
   let conprops = substitute(conprops, "db:\\w\\+", "", "")
-  let query = s:GetQuery(a:first_line, a:last_line)
+  let query = s:GetQuery(a:firstline, a:lastline)
 
   if len(adapter) > 1 && adapter[1] == 'mysql'
     let cmdline = s:MySQLCommand(conprops, query)
@@ -58,3 +59,4 @@ function! s:PostgresCommand(conprops, query)
   return cmdline
 endfunction
 
+command! -range=% SimpleDBExecuteSql <line1>,<line2>call simpledb#ExecuteSql()
