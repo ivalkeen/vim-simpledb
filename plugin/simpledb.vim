@@ -1,3 +1,4 @@
+if !exists('g:simpledb_show_timing') | let g:simpledb_show_timing = 1 | en
 
 function! s:GetQuery(first, last)
   let query = ''
@@ -53,7 +54,12 @@ function! s:MySQLCommand(conprops, query)
 endfunction
 
 function! s:PostgresCommand(conprops, query)
-  let sql_text = shellescape('\\timing on \\\ ' . a:query)
+  if g:simpledb_show_timing == 1
+    let sql_text = shellescape('\\timing on \\\ ' . a:query)
+  else
+    let sql_text = shellescape(a:query)
+  end
+
   let sql_text = escape(sql_text, '%')
   let cmdline = 'echo -e ' . sql_text . '| psql ' . a:conprops
   return cmdline

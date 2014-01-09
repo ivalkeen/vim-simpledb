@@ -38,6 +38,8 @@ Default key mapping for execution: `<enter>`.
 
     Note: if you don't want to enter password each time, you should create .pgpass (.my.cnf for mysql) file
 
+    There is also usefull key `-q` to avoid messages like 'Timing is on' etc.
+
 3. Add sql statements to your file
 
 4. Hit `<enter>` to execute all not commented queries
@@ -46,7 +48,11 @@ Default key mapping for execution: `<enter>`.
 
 6. Select multiple lines in visual mode and hit `<enter>` to execute just those queries
 
+## Configuration
 
+If you do not want timings to be displayed, add this to your `.vimrc`:
+
+    let g:simpledb_show_timing = 0
 
 
 If you have any questions, [mail me](mailto:itkalin@gmail.com)
