@@ -21,7 +21,7 @@ function! s:ShowResults()
   if bufwinnr(s:result_buf_nr) > 0
     exec bufwinnr(s:result_buf_nr) . "wincmd w"
   else
-    exec 'silent! botright ' . 'sview +set\ autoread /tmp/vim-simpledb-result.txt '
+    exec 'silent! botright noswapfile sview +set\ autoread /tmp/vim-simpledb-result.txt '
     let s:result_buf_nr = bufnr('%')
   endif
 
