@@ -61,3 +61,21 @@ If you have any questions, [mail me](mailto:itkalin@gmail.com)
 
 1. Rewrite code to match vim script conventions
 2. Intellisense
+
+## Contributing
+
+1. Fork it
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Added some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create new Pull Request
+
+## Self-Promotion
+
+If you like this project, please follow the repository on [GitHub](https://github.com/ivalkeen/vim-simpledb). You can also consider visiting my [blog](http://www.tkalin.com) and following me on [Twitter](https://twitter.com/ivalkeen) and [Github](https://github.com/ivalkeen).
+
+
+[1]: http://i.imgur.com/1UrMOpd.png
+[2]: https://github.com/kien/ctrlp.vim
+[3]: https://github.com/gmarik/vundle
+
