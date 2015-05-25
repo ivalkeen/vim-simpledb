@@ -72,7 +72,7 @@ If you have any questions, [mail me](mailto:itkalin@gmail.com)
 
 ## Self-Promotion
 
-If you like this project, please follow the repository on [GitHub](https://github.com/ivalkeen/vim-simpledb). You can also consider visiting my [blog](http://www.tkalin.com) and following me on [Twitter](https://twitter.com/ivalkeen) and [Github](https://github.com/ivalkeen).
+If you like this project, please follow the repository on [GitHub](https://github.com/ivalkeen/vim-simpledb). Also, you might consider visiting my [blog](http://www.tkalin.com) and following me on [Twitter](https://twitter.com/ivalkeen) and [Github](https://github.com/ivalkeen).
 
 
 [1]: http://i.imgur.com/1UrMOpd.png
