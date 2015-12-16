@@ -4,8 +4,9 @@ function! s:GetQuery(first, last)
   let query = ''
   let lines = getline(a:first, a:last)
   for line in lines
-    if line !~ '--.*'
-      let query .= line . "\n"
+    let fragment = matchstr(line, '\(.*\)\(--.*\)\?')
+    if !empty(fragment)
+      let query .= fragment . "\n"
     endif
   endfor
   return query
