@@ -55,7 +55,7 @@ If you do not want timings to be displayed, add this to your `.vimrc`:
     let g:simpledb_show_timing = 0
 
 If you want to customize the key mappings,
-set the variable `simpledb_use_default_keybindings` to 0 and add your own mappings.
+set the variable `simpledb_use_default_keybindings` to 0 and add your own mappings in `~/.vimrc`.
 For example, to execute a sql statement by pressing "ctrl-q" instead of "enter",
 add the following:
 
