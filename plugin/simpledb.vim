@@ -41,26 +41,24 @@ function! simpledb#ExecuteSql() range
     let cmdline = s:PostgresCommand(conprops, query)
   endif
 
-  silent execute '!(' . substitute(cmdline, "!", "\\\\!", "g") . ' > /tmp/vim-simpledb-result.txt 2>&1)'
+  silent execute '!(' . cmdline . ' > /tmp/vim-simpledb-result.txt 2>&1)'
   call s:ShowResults()
   redraw!
 endfunction
 
 function! s:MySQLCommand(conprops, query)
-  let sql_text = shellescape(a:query)
-  let sql_text = escape(sql_text, '%')
+  let sql_text = shellescape(a:query, 1)
   let cmdline = 'echo -e ' . sql_text . '| mysql -v -v -v -t ' . a:conprops
   return cmdline
 endfunction
 
 function! s:PostgresCommand(conprops, query)
   if g:simpledb_show_timing == 1
-    let sql_text = shellescape('\\timing on \\\ ' . a:query)
+    let sql_text = shellescape('\\timing on \\\ ' . a:query, 1)
   else
-    let sql_text = shellescape(a:query)
+    let sql_text = shellescape(a:query, 1)
   end
 
-  let sql_text = escape(sql_text, '%')
   let cmdline = 'echo -e ' . sql_text . '| psql ' . a:conprops
   return cmdline
 endfunction
